@@ -10,6 +10,7 @@ import com.example.ecommerce.demo.model.enums.Status;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,7 +23,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@jakarta.persistence.Table(name = "Orders")
+@jakarta.persistence.Table(name = "orders")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -36,6 +37,8 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Enumerated(jakarta.persistence.EnumType.STRING)
+    @Column(nullable = false)
     private Status status;
 
     @Column(precision = 10, scale = 2)
