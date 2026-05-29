@@ -21,6 +21,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -47,7 +48,8 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private Role role;
+    @Default
+    private Role role = Role.CUSTOMER;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
